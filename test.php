@@ -8,7 +8,7 @@
 include 'classes/Fetcher.php';
 include 'classes/Processor.php';
 $f = new Fetcher();
-$res =  $f->fetch("ITC", "20-01-2010", "20-02-2015");
+$res =  $f->fetch("ITC");
 $p = new Processor("ITC");
 $p->process($res);
 ?>
