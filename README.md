@@ -1,8 +1,8 @@
 ### Instruction to get the git repo
-1) Clone the repo.
-2) Add your local working files (IDE files) to .gitignore
-3) Commit
-4) Push to ensure you've got it working correctly.
+-  Clone the repo.
+-  Add your local working files (IDE files) to .gitignore
+-  Commit
+-  Push to ensure you've got it working correctly.
 
 ### Instruction to run the application
 Import the sql file under sql/ into MYSQL
