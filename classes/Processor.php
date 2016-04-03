@@ -12,9 +12,9 @@ class Processor {
 	 */
 	private $neededKeys = [0=>"", 3=>"", 4=>"", 5=>"", 7=>"", 8=>"", 9=>""]; 
 			
-	function __construct($symbol) {
+	function __construct($symbol = NULL) {
 		include __DIR__."/../include/config/db.php";
-		$this->db = new mysqli("localhost", $db['username'], $db["password"], $db["databaseName"]);
+		$this->db = new mysqli("localhost", $db['username'], $db["password"], $db["database"]);
 		$this->symbol = $symbol;
 	}
 	
@@ -57,7 +57,7 @@ class Processor {
 		$this->db->query("COMMIT");
 		
 		if($this->db->error) echo $this->db->error;
-		else echo "Done";
+		else echo $this->symbol.": Completed<br>";
 	}
 	
 	public function numberTransform($data) {
@@ -102,6 +102,14 @@ class Processor {
 		}
 		$this->writeToDb($rows);
 	}
+    
+    /**
+    * @param string $symbol Stock symbol
+    */
+    public function setSymbol($symbol){
+        $this->symbol = $symbol?$symbol:$this->symbol;
+    }
+    
 
 }
 ?>

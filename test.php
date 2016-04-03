@@ -5,11 +5,20 @@
   Author: Adarsh
   Purpose :
  */
+ set_time_limit(0);
+ die("Uncomment line 9 to run. This is a failsafe to prevent unwanted reruns");
 include 'classes/Fetcher.php';
 include 'classes/Processor.php';
 $f = new Fetcher();
-$res =  $f->fetch("ITC");
-$p = new Processor("ITC");
-$p->process($res);
+$f->setFromDate('01-01-2006');
+$p = new Processor();
+
+$result = $p->db->query('SELECT * FROM companies');
+while($row = $result->fetch_assoc()){
+    $res = $f->fetch($row['symbol']);
+    $p->setSymbol($row['symbol']);
+    $p->process($res);
+}
+echo "Completed all.";
 ?>
 

@@ -7,6 +7,6 @@
  */
 $db['username'] = 'root';
 $db['password'] = '';
-$db['databaseName'] = 'market';
+$db['database'] = 'market';
 ?>
 
