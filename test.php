@@ -5,8 +5,8 @@
   Author: Adarsh
   Purpose :
  */
- set_time_limit(0);
- die("Uncomment line 9 to run. This is a failsafe to prevent unwanted reruns");
+set_time_limit(0);
+die("Comment line 9 to run. This is a fail safe to prevent unwanted reruns");
 include 'classes/Fetcher.php';
 include 'classes/Processor.php';
 $f = new Fetcher();
