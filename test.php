@@ -10,7 +10,8 @@ die("Comment line 9 to run. This is a fail safe to prevent unwanted reruns");
 include 'classes/Fetcher.php';
 include 'classes/Processor.php';
 $f = new Fetcher();
-$f->setFromDate('01-01-2006');
+$f->setFromDate('10-05-2016');
+$f->setToDate('07-06-2016');
 $p = new Processor();
 
 $result = $p->db->query('SELECT * FROM companies');

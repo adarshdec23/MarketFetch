@@ -8,8 +8,8 @@
 class Fetcher {
 	
 	private $baseUrl = 'http://www.nseindia.com/live_market/dynaContent/live_watch/get_quote/getHistoricalData.jsp?';
-	private $fromDate = '01-01-2013';
-	private $toDate = '20-01-2016';
+	private $fromDate = '01-01-2018';
+	private $toDate = '07-06-2016';
 
 	function __construct() {
 		$options = array(
@@ -32,9 +32,9 @@ class Fetcher {
 	 * @return string Complete url to fetch
 	 */
 	function buildUrl($symbol, $from, $to) {
-		$symbolPart = 'symbol='.strtoupper($symbol)."&";
-		$fromPart = 'fromDate='.strtoupper($from)."&";
-		$toPart = 'toDate='.strtoupper($to);
+		$symbolPart = 'symbol='.strtoupper(urlencode($symbol))."&";
+		$fromPart = 'fromDate='.$from."&";
+		$toPart = 'toDate='.$to;
 		$trailingPart = "series=EQ&".$symbolPart.$fromPart.$toPart;
 		$targetUrl = $this->baseUrl.$trailingPart;
 		return $targetUrl;
@@ -61,11 +61,11 @@ class Fetcher {
 	 */
 	
 	function setToDate($toDate) {
-		$this->$toDate = $toDate?$toDate:$this->toDate;
+		$this->$toDate = $toDate;
 	}
 	
 	function setFromDate($fromDate) {
-		$this->fromDate = $fromDate?$fromDate:$this->fromDate;
+		$this->fromDate = $fromDate;
 	}
 	
 	/*
